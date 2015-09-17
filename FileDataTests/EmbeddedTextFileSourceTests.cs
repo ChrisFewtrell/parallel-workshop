@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using FileData;
 using FileData.Reading;
 using NUnit.Framework;
 
@@ -17,13 +18,13 @@ namespace FileDataTests
         [Test]
         public void GetTextFile_ShouldReturnDisposable_WhenFileExists()
         {
-            Assert.That(new EmbeddedTextFileSource().GetTextFile("HackersDictionary.txt"), Is.Not.Null);
+            Assert.That(new EmbeddedTextFileSource().GetTextFile(EmbeddedFiles.Medium), Is.Not.Null);
         }
 
         [Test]
         public void GetTextFile_ShouldReturnFileWithSeveralLines()
         {
-            var file = new EmbeddedTextFileSource().GetTextFile("HackersDictionary.txt");
+            var file = new EmbeddedTextFileSource().GetTextFile(EmbeddedFiles.Medium);
             var lines = file.Lines;
             Assert.That(lines.Count(), Is.GreaterThan(10));
         }
@@ -31,7 +32,7 @@ namespace FileDataTests
         [Test]
         public void GetTextFile_ShouldReturnFileWhoseLinesCanBeEnumeratedMultipleTimes()
         {
-            var file = new EmbeddedTextFileSource().GetTextFile("HackersDictionary.txt");
+            var file = new EmbeddedTextFileSource().GetTextFile(EmbeddedFiles.Medium);
             var lines = file.Lines;
             int count1 = lines.Count();
             int count2 = lines.Count();

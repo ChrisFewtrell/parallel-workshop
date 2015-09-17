@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 
-namespace FileData
+namespace FileData.Reading
 {
-    internal static class FileData
+    internal static class EmbeddedResource
     {
         private static readonly Lazy<ISet<string>> ResourceNames = new Lazy<ISet<string>>(GetResourceNames);
 
-        public static Stream OpenResource(string fileName)
+        public static Stream Open(string fileName)
         {
             try
             {
@@ -23,7 +22,7 @@ namespace FileData
             }
         }
 
-        public static bool HasResource(string fileName)
+        public static bool Exists(string fileName)
         {
             string resourceName = GetResourceName(fileName);
             return ResourceNames.Value.Contains(resourceName);

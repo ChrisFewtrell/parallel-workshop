@@ -29,7 +29,7 @@ namespace FileData.Reading
 
             public IEnumerator<string> GetEnumerator()
             {
-                var stream = FileData.OpenResource(fileName);
+                var stream = EmbeddedResource.Open(fileName);
                 return new LinesEnumerator(stream);
             }
 
