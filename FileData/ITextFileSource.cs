@@ -1,4 +1,4 @@
-﻿namespace FileData.Reading
+﻿namespace FileData
 {
     public interface ITextFileSource
     {

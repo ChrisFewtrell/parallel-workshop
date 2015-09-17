@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Characters\CharacterTotaliserTests.cs" />
     <Compile Include="EmbeddedFilesTests.cs" />
     <Compile Include="Reading\EmbeddedTextFileSourceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

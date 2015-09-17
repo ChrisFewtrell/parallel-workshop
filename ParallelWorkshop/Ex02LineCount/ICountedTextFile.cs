@@ -1,4 +1,4 @@
-﻿using FileData.Reading;
+﻿using FileData;
 
 namespace ParallelWorkshop.Ex02LineCount
 {

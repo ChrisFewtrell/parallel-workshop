@@ -37,11 +37,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Characters\CharacterTotaliser.cs" />
     <Compile Include="EmbeddedFiles.cs" />
+    <Compile Include="ITotaliser.cs" />
     <Compile Include="Reading\EmbeddedResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reading\ITextFile.cs" />
-    <Compile Include="Reading\ITextFileSource.cs" />
+    <Compile Include="ITextFile.cs" />
+    <Compile Include="ITextFileSource.cs" />
     <Compile Include="Reading\EmbeddedTextFileSource.cs" />
     <Compile Include="Reading\EmbeddedTextFile.cs" />
   </ItemGroup>
