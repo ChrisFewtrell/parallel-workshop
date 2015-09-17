@@ -46,6 +46,9 @@
     <Compile Include="Ex01Serial\SerialNumberProvider.cs" />
     <Compile Include="Ex01Serial\SerialNumberProviderTests.cs" />
     <Compile Include="Ex01Serial\SolutionWithInterlocked\SerialNumberProvider.cs" />
+    <Compile Include="Ex02LazyCount\CountedTextFile.cs" />
+    <Compile Include="Ex02LazyCount\CountedTextFileTests.cs" />
+    <Compile Include="Ex02LazyCount\ICountedTextFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

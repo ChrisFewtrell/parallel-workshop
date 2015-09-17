@@ -18,6 +18,11 @@ namespace FileData.Reading
             return lines;
         }
 
+        public override string ToString()
+        {
+            return lines.ToString();
+        }
+
         private class FileLines : IEnumerable<string>
         {
             private readonly string fileName;
@@ -36,6 +41,11 @@ namespace FileData.Reading
             IEnumerator IEnumerable.GetEnumerator()
             {
                 return GetEnumerator();
+            }
+
+            public override string ToString()
+            {
+                return fileName;
             }
         }
 

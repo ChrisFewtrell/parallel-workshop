@@ -1,4 +1,5 @@
 ﻿using FileData.Reading;
+using System.Collections.Generic;
 
 namespace FileData
 {
@@ -13,5 +14,15 @@ namespace FileData
         public static readonly ITextFile Medium = Source.GetTextFile(MediumFileName);
         public static readonly ITextFile Large = Source.GetTextFile(LargeFileName);
         public static readonly ITextFile Huge = Source.GetTextFile(HugeFileName);
+
+        public static IEnumerable<ITextFile> AllFiles
+        {
+            get
+            {
+                yield return Medium;
+                yield return Large;
+                yield return Huge;
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace ParallelWorkshop.Ex01Serial
 
         public int GetNextSerialNumber()
         {
+            // This isn't thread-safe. What's the best way to make it so?
             return ++curNumber;
         }
     }
