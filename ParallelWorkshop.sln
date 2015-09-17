@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelWorkshop", "ParallelWorkshop\ParallelWorkshop.csproj", "{65BA215A-5C2F-4C6E-B364-936E33CB08B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileData", "FileData\FileData.csproj", "{D5AF3635-1554-49E0-A560-0B928145E8B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{65BA215A-5C2F-4C6E-B364-936E33CB08B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65BA215A-5C2F-4C6E-B364-936E33CB08B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65BA215A-5C2F-4C6E-B364-936E33CB08B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5AF3635-1554-49E0-A560-0B928145E8B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5AF3635-1554-49E0-A560-0B928145E8B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5AF3635-1554-49E0-A560-0B928145E8B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5AF3635-1554-49E0-A560-0B928145E8B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
