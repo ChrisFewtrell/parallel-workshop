@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace ParallelWorkshop.Ex02LazyCount
+namespace ParallelWorkshop.Ex02LineCount
 {
     public class CountedTextFile : ICountedTextFile
     {

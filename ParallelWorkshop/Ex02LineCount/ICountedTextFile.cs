@@ -1,6 +1,6 @@
 ﻿using FileData.Reading;
 
-namespace ParallelWorkshop.Ex02LazyCount
+namespace ParallelWorkshop.Ex02LineCount
 {
     public interface ICountedTextFile : ITextFile
     {
