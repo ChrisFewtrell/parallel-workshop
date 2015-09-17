@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace FileData.Reading
 {
@@ -8,6 +7,6 @@ namespace FileData.Reading
         /// <summary>
         /// The lines of the text file. Note that retrieving each line might, or might not, block.
         /// </summary>
-        IEnumerable<string> Lines { get; }
+        IEnumerable<string> ReadLines();
     }
 }

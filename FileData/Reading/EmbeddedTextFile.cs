@@ -13,9 +13,9 @@ namespace FileData.Reading
             lines = new FileLines(fileName);
         }
 
-        public IEnumerable<string> Lines
+        public IEnumerable<string> ReadLines()
         {
-            get { return lines; }
+            return lines;
         }
 
         private class FileLines : IEnumerable<string>

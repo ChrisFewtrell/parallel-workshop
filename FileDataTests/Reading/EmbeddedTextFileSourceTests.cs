@@ -25,7 +25,7 @@ namespace FileDataTests.Reading
         public void GetTextFile_ShouldReturnFileWithSeveralLines()
         {
             var file = new EmbeddedTextFileSource().GetTextFile(EmbeddedFiles.MediumFileName);
-            var lines = file.Lines;
+            var lines = file.ReadLines();
             Assert.That(lines.Count(), Is.GreaterThan(10));
         }
 
@@ -33,7 +33,7 @@ namespace FileDataTests.Reading
         public void GetTextFile_ShouldReturnFileWhoseLinesCanBeEnumeratedMultipleTimes()
         {
             var file = new EmbeddedTextFileSource().GetTextFile(EmbeddedFiles.MediumFileName);
-            var lines = file.Lines;
+            var lines = file.ReadLines();
             int count1 = lines.Count();
             int count2 = lines.Count();
             Assert.That(count1, Is.EqualTo(count2));
