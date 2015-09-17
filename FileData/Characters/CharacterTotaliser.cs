@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 namespace FileData.Characters
 {
-    public class CharacterTotaliser : ITotaliser
+    public class CharacterTotaliser : ITotaliser, ICharacterCounter
     {
         private readonly Dictionary<char, int> charCounts = new Dictionary<char,int>();
 
