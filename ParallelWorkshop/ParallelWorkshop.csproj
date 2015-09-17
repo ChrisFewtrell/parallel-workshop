@@ -49,6 +49,7 @@
     <Compile Include="Ex02LineCount\CountedTextFile.cs" />
     <Compile Include="Ex02LineCount\CountedTextFileTests.cs" />
     <Compile Include="Ex02LineCount\ICountedTextFile.cs" />
+    <Compile Include="Ex02LineCount\SolutionWithLazyInitializer\CountedTextFile.cs" />
     <Compile Include="Ex02LineCount\SolutionWithLazy\CountedTextFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
