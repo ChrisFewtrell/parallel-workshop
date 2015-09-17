@@ -43,15 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmbeddedTextFileSourceTests.cs" />
+    <Compile Include="EmbeddedFilesTests.cs" />
+    <Compile Include="Reading\EmbeddedTextFileSourceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reading\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FileData\FileData.csproj">
       <Project>{d5af3635-1554-49e0-a560-0b928145e8b0}</Project>
