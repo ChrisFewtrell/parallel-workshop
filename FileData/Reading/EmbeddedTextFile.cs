@@ -6,16 +6,16 @@ namespace FileData.Reading
 {
     internal class EmbeddedTextFile : ITextFile
     {
-        private readonly string fileName;
+        private readonly FileLines lines;
 
         public EmbeddedTextFile(string fileName)
         {
-            this.fileName = fileName;
+            lines = new FileLines(fileName);
         }
 
         public IEnumerable<string> Lines
         {
-            get { return new FileLines(fileName); }
+            get { return lines; }
         }
 
         private class FileLines : IEnumerable<string>

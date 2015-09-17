@@ -1,13 +1,11 @@
-﻿using System.IO;
-
-namespace FileData.Reading
+﻿namespace FileData.Reading
 {
     public class EmbeddedTextFileSource : ITextFileSource
     {
         public ITextFile GetTextFile(string fileName)
         {
-            Stream stream = FileData.OpenResource(fileName);
-            return stream == null ? null : new EmbeddedTextFile(fileName);
+            // Check that it exists here, avoiding unexpected exceptions later
+            return FileData.HasResource(fileName) ? new EmbeddedTextFile(fileName) : null;
         }
     }
 }
