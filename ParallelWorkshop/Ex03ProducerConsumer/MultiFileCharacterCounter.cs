@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using FileData;
 using FileData.Characters;
@@ -14,10 +13,11 @@ namespace ParallelWorkshop.Ex03ProducerConsumer
 
         private readonly CharacterTotaliser totaliser = new CharacterTotaliser();
         private readonly BlockingCollection<string> textLineQueue = new BlockingCollection<string>(MaxQueue);
+        private readonly Task consumerTask;
 
         public MultiFileCharacterCounter()
         {
-            Task.Factory.StartNew(ConsumeQueue);
+            consumerTask = Task.Factory.StartNew(ConsumeQueue);
         }
 
         public IReadOnlyDictionary<char, int> GetCharCounts()
@@ -53,13 +53,19 @@ namespace ParallelWorkshop.Ex03ProducerConsumer
                 try { line = textLineQueue.Take(); } catch (InvalidOperationException) { break; }
                 totaliser.Add(line);
             }
-
-            textLineQueue.Dispose();
         }
 
         public void Dispose()
         {
             textLineQueue.CompleteAdding();
+            try
+            {
+                consumerTask.Wait();
+            }
+            finally
+            {
+                textLineQueue.Dispose();
+            }
         }
     }
 }
