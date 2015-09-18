@@ -26,3 +26,11 @@ Among the .Net framework classes that should be considered are: -
 If you there are any classes in the above list that you have never
 encountered before, it would be worth quickly reading their online
 documentation.
+
+Each exercise has at least one pre-made possible solution, in a folder
+called PossibleSolution. These solutions certainly make the tests go green
+but they might not always be the best possible solution. See if you can
+do better, in terms of: -
+* Performance
+* Correctness
+* Clarity
