@@ -43,10 +43,8 @@
     <Compile Include="Ex01Serial\SerialNumberProvider.cs" />
     <Compile Include="Ex01Serial\PossibleSolution\InterlockedSerialNumberProvider.cs" />
     <Compile Include="Ex02LineCount\CountedTextFile.cs" />
-    <Compile Include="Ex02LineCount\ICountedTextFile.cs" />
     <Compile Include="Ex02LineCount\PossibleSolution\LazyInitialisedCountedTextFile.cs" />
     <Compile Include="Ex02LineCount\PossibleSolution\LazyCountedTextFile.cs" />
-    <Compile Include="Ex03TotalLines\ITotalLineCount.cs" />
     <Compile Include="Ex03TotalLines\PossibleSolution\InterlockedTotalLineCount.cs" />
     <Compile Include="Ex03TotalLines\PossibleSolution\LazyInitialisedTotalLineCount.cs" />
     <Compile Include="Ex03TotalLines\PossibleSolution\LazyTotalLineCount.cs" />

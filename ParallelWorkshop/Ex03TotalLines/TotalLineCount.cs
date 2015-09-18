@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Lurchsoft.FileData;
+using Lurchsoft.FileData.Lines;
 
 namespace Lurchsoft.ParallelWorkshop.Ex03TotalLines
 {

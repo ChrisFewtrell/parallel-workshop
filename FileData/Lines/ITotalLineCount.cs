@@ -1,4 +1,4 @@
-namespace Lurchsoft.ParallelWorkshop.Ex03TotalLines
+namespace Lurchsoft.FileData.Lines
 {
     public interface ITotalLineCount
     {

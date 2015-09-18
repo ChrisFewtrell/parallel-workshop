@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading;
 using Lurchsoft.FileData;
+using Lurchsoft.FileData.Lines;
 
 namespace Lurchsoft.ParallelWorkshop.Ex03TotalLines.PossibleSolution
 {
