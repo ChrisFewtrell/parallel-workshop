@@ -47,6 +47,9 @@
     <Compile Include="Ex02LineCount\PossibleSolution\LazyInitialisedCountedTextFile.cs" />
     <Compile Include="Ex02LineCount\PossibleSolution\LazyCountedTextFile.cs" />
     <Compile Include="Ex03TotalLines\ITotalLineCount.cs" />
+    <Compile Include="Ex03TotalLines\PossibleSolution\InterlockedTotalLineCount.cs" />
+    <Compile Include="Ex03TotalLines\PossibleSolution\LazyInitialisedTotalLineCount.cs" />
+    <Compile Include="Ex03TotalLines\PossibleSolution\LazyTotalLineCount.cs" />
     <Compile Include="Ex03TotalLines\TotalLineCount.cs" />
     <Compile Include="Ex04ItemCache\CachingFileCharacterCounter.cs" />
     <Compile Include="Ex04ItemCache\IFileCharacterCounter.cs" />
