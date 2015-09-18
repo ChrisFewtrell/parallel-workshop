@@ -1,6 +1,6 @@
-﻿using FileData;
+﻿using Lurchsoft.FileData;
 
-namespace ParallelWorkshop.Ex02LineCount
+namespace Lurchsoft.ParallelWorkshop.Ex02LineCount
 {
     public interface ICountedTextFile : ITextFile
     {

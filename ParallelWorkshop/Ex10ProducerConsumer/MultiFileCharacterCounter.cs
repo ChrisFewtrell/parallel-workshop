@@ -2,10 +2,10 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using FileData;
-using FileData.Characters;
+using Lurchsoft.FileData;
+using Lurchsoft.FileData.Characters;
 
-namespace ParallelWorkshop.Ex10ProducerConsumer
+namespace Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer
 {
     public class MultiFileCharacterCounter : ICharacterCounter, IDisposable
     {

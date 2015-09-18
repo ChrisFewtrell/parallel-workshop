@@ -1,7 +1,7 @@
-﻿using FileData;
+﻿using Lurchsoft.FileData;
 using NUnit.Framework;
 
-namespace FileDataTests
+namespace Lurchsoft.FileDataTests
 {
     [TestFixture]
     public class EmbeddedFilesTests

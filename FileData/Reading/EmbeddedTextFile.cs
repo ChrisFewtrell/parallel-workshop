@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-namespace FileData.Reading
+namespace Lurchsoft.FileData.Reading
 {
     internal class EmbeddedTextFile : ITextFile
     {

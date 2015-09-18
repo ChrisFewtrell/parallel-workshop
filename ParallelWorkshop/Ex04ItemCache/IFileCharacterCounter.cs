@@ -1,7 +1,7 @@
-﻿using FileData;
-using FileData.Characters;
+﻿using Lurchsoft.FileData;
+using Lurchsoft.FileData.Characters;
 
-namespace ParallelWorkshop.Ex04ItemCache
+namespace Lurchsoft.ParallelWorkshop.Ex04ItemCache
 {
     public interface IFileCharacterCounter
     {

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5AFC5A46-D8A7-4EA2-8E31-F3848BA4E1CE}</ProjectGuid>
+    <ProjectGuid>{ABB2A530-92A7-46C7-AD4F-CF4B99F9EB2C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lurchsoft.FileDataTests</RootNamespace>
-    <AssemblyName>FileDataTests</AssemblyName>
+    <RootNamespace>Lurchsoft.ParallelWorkshopTests</RootNamespace>
+    <AssemblyName>ParallelWorkshopTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -43,21 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Characters\CharacterTotaliserTests.cs" />
-    <Compile Include="EmbeddedFilesTests.cs" />
-    <Compile Include="Reading\EmbeddedTextFileSourceTests.cs" />
+    <Compile Include="Ex01Serial\SerialNumberProviderTests.cs" />
+    <Compile Include="Ex02LineCount\CountedTextFileTests.cs" />
+    <Compile Include="Ex04ItemCache\CachingFileCharacterCounterTests.cs" />
+    <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\FileData\FileData.csproj">
       <Project>{d5af3635-1554-49e0-a560-0b928145e8b0}</Project>
       <Name>FileData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParallelWorkshop\ParallelWorkshop.csproj">
+      <Project>{65ba215a-5c2f-4c6e-b364-936e33cb08b2}</Project>
+      <Name>ParallelWorkshop</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,10 +3,10 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using FileData;
-using FileData.Characters;
+using Lurchsoft.FileData;
+using Lurchsoft.FileData.Characters;
 
-namespace ParallelWorkshop.Ex10ProducerConsumer.PossibleSolution
+namespace Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer.PossibleSolution
 {
     /// <summary>
     /// This version passes the tests (for me, at least), but I am not sure if it is either 100% correct or

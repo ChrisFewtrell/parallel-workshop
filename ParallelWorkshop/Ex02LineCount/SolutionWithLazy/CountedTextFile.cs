@@ -1,10 +1,10 @@
-﻿using FileData;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using System;
+using Lurchsoft.FileData;
 
-namespace ParallelWorkshop.Ex02LineCount.SolutionWithLazy
+namespace Lurchsoft.ParallelWorkshop.Ex02LineCount.SolutionWithLazy
 {
     public class CountedTextFile : ICountedTextFile
     {

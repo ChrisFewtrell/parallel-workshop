@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
-using FileData;
+using Lurchsoft.FileData;
+using Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer;
 using NUnit.Framework;
 
-namespace ParallelWorkshop.Ex10ProducerConsumer
+namespace Lurchsoft.ParallelWorkshopTests.Ex10ProducerConsumer
 {
     [TestFixture]
     public class MultiFileCharacterCounterTests

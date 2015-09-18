@@ -1,7 +1,8 @@
-﻿using NUnit.Framework;
-using System.Linq;
+﻿using System.Linq;
+using Lurchsoft.ParallelWorkshop.Ex01Serial;
+using NUnit.Framework;
 
-namespace ParallelWorkshop.Ex01Serial
+namespace Lurchsoft.ParallelWorkshopTests.Ex01Serial
 {
     [TestFixture]
     public class SerialNumberProviderTests

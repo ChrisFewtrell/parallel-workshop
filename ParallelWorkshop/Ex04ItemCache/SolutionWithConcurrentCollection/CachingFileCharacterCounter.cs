@@ -1,8 +1,8 @@
 ﻿using System.Collections.Concurrent;
-using FileData;
-using FileData.Characters;
+using Lurchsoft.FileData;
+using Lurchsoft.FileData.Characters;
 
-namespace ParallelWorkshop.Ex04ItemCache.SolutionWithConcurrentCollection
+namespace Lurchsoft.ParallelWorkshop.Ex04ItemCache.SolutionWithConcurrentCollection
 {
     public class CachingFileCharacterCounter : IFileCharacterCounter
     {

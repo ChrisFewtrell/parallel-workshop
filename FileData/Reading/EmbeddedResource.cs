@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace FileData.Reading
+namespace Lurchsoft.FileData.Reading
 {
     internal static class EmbeddedResource
     {
@@ -35,7 +35,7 @@ namespace FileData.Reading
 
         private static string GetResourceName(string fileName)
         {
-            return string.Format("FileData.TextFiles.{0}", fileName);
+            return string.Format("Lurchsoft.FileData.TextFiles.{0}", fileName);
         }
     }
 }

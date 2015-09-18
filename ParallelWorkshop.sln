@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4A0EB6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{092562A0-C645-4D40-9607-90820FBAAC7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelWorkshopTests", "ParallelWorkshopTests\ParallelWorkshopTests.csproj", "{ABB2A530-92A7-46C7-AD4F-CF4B99F9EB2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{5AFC5A46-D8A7-4EA2-8E31-F3848BA4E1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AFC5A46-D8A7-4EA2-8E31-F3848BA4E1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AFC5A46-D8A7-4EA2-8E31-F3848BA4E1CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB2A530-92A7-46C7-AD4F-CF4B99F9EB2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB2A530-92A7-46C7-AD4F-CF4B99F9EB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB2A530-92A7-46C7-AD4F-CF4B99F9EB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB2A530-92A7-46C7-AD4F-CF4B99F9EB2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

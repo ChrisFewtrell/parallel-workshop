@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using FileData;
+using Lurchsoft.FileData;
+using Lurchsoft.ParallelWorkshop.Ex04ItemCache;
 using NUnit.Framework;
 
-namespace ParallelWorkshop.Ex04ItemCache
+namespace Lurchsoft.ParallelWorkshopTests.Ex04ItemCache
 {
     [TestFixture]
     public class CachingFileCharacterCounterTests

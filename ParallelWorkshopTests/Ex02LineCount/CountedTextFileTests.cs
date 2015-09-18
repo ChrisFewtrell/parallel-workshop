@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using FileData;
+using Lurchsoft.FileData;
+using Lurchsoft.ParallelWorkshop.Ex02LineCount;
 using NUnit.Framework;
 
-namespace ParallelWorkshop.Ex02LineCount
+namespace Lurchsoft.ParallelWorkshopTests.Ex02LineCount
 {
     [TestFixture]
     public class CountedTextFileTests

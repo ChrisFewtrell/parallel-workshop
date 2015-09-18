@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FileData
+namespace Lurchsoft.FileData
 {
     public interface ITextFile
     {

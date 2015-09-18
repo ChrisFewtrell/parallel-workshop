@@ -1,4 +1,4 @@
-﻿namespace FileData.Reading
+﻿namespace Lurchsoft.FileData.Reading
 {
     public class EmbeddedTextFileSource : ITextFileSource
     {

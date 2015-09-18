@@ -1,7 +1,7 @@
-﻿using FileData.Reading;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Lurchsoft.FileData.Reading;
 
-namespace FileData
+namespace Lurchsoft.FileData
 {
     public static class EmbeddedFiles
     {

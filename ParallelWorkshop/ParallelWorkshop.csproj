@@ -7,7 +7,7 @@
     <ProjectGuid>{65BA215A-5C2F-4C6E-B364-936E33CB08B2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ParallelWorkshop</RootNamespace>
+    <RootNamespace>Lurchsoft.ParallelWorkshop</RootNamespace>
     <AssemblyName>ParallelWorkshop</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,19 +41,15 @@
   <ItemGroup>
     <Compile Include="Ex01Serial\ISerialNumberProvider.cs" />
     <Compile Include="Ex01Serial\SerialNumberProvider.cs" />
-    <Compile Include="Ex01Serial\SerialNumberProviderTests.cs" />
     <Compile Include="Ex01Serial\SolutionWithInterlocked\SerialNumberProvider.cs" />
     <Compile Include="Ex02LineCount\CountedTextFile.cs" />
-    <Compile Include="Ex02LineCount\CountedTextFileTests.cs" />
     <Compile Include="Ex02LineCount\ICountedTextFile.cs" />
     <Compile Include="Ex02LineCount\SolutionWithLazyInitializer\CountedTextFile.cs" />
     <Compile Include="Ex02LineCount\SolutionWithLazy\CountedTextFile.cs" />
     <Compile Include="Ex04ItemCache\CachingFileCharacterCounter.cs" />
-    <Compile Include="Ex04ItemCache\CachingFileCharacterCounterTests.cs" />
     <Compile Include="Ex04ItemCache\IFileCharacterCounter.cs" />
     <Compile Include="Ex04ItemCache\SolutionWithConcurrentCollection\CachingFileCharacterCounter.cs" />
     <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounter.cs" />
-    <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounterTests.cs" />
     <Compile Include="Ex10ProducerConsumer\PossibleSolution\MultiFileCharacterCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,9 +58,6 @@
       <Project>{d5af3635-1554-49e0-a560-0b928145e8b0}</Project>
       <Name>FileData</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

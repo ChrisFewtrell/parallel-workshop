@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using FileData;
-using FileData.Reading;
+using Lurchsoft.FileData;
+using Lurchsoft.FileData.Reading;
 using NUnit.Framework;
 
 // ReSharper disable PossibleMultipleEnumeration
-namespace FileDataTests.Reading
+namespace Lurchsoft.FileDataTests.Reading
 {
     [TestFixture]
     public class EmbeddedTextFileSourceTests

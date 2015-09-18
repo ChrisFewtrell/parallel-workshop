@@ -7,7 +7,7 @@
     <ProjectGuid>{D5AF3635-1554-49E0-A560-0B928145E8B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FileData</RootNamespace>
+    <RootNamespace>Lurchsoft.FileData</RootNamespace>
     <AssemblyName>FileData</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

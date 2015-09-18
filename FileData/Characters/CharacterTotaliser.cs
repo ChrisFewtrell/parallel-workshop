@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-namespace FileData.Characters
+
+namespace Lurchsoft.FileData.Characters
 {
     public class CharacterTotaliser : ITotaliser, ICharacterCounter
     {

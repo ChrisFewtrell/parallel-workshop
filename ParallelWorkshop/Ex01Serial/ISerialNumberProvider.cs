@@ -1,4 +1,4 @@
-﻿namespace ParallelWorkshop.Ex01Serial
+﻿namespace Lurchsoft.ParallelWorkshop.Ex01Serial
 {
     interface ISerialNumberProvider
     {

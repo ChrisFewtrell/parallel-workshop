@@ -1,4 +1,4 @@
-﻿namespace FileData
+﻿namespace Lurchsoft.FileData
 {
     interface ITotaliser
     {

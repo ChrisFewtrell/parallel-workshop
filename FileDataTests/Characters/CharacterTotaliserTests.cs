@@ -1,7 +1,7 @@
-﻿using FileData.Characters;
+﻿using Lurchsoft.FileData.Characters;
 using NUnit.Framework;
 
-namespace FileDataTests.Characters
+namespace Lurchsoft.FileDataTests.Characters
 {
     [TestFixture]
     public class CharacterTotaliserTests
