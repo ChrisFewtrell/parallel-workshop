@@ -9,7 +9,7 @@ namespace ParallelWorkshop.Ex03ProducerConsumer
     public class MultiFileCharacterCounterTests
     {
         [Test]
-        public void CharCounts_ShouldReturnTheCountForAllAddedFiles()
+        public void GetCharCounts_ShouldReturnTheFinalCountForAllAddedFiles()
         {
             using (var counter = new MultiFileCharacterCounter())
             {
@@ -26,6 +26,27 @@ namespace ParallelWorkshop.Ex03ProducerConsumer
                 Assert.That(result2, Is.Not.Empty);
 
                 Assert.That(result2, Is.EqualTo(result1));
+            }
+        }
+
+        [Test]
+        public void GetCharCounts_ShouldReturnRevisedCountWhenAnotherFileAddedAfterGettingInitialResults()
+        {
+            using (var counter = new MultiFileCharacterCounter())
+            {
+                counter.Add(EmbeddedFiles.Large);
+                counter.Add(EmbeddedFiles.Huge);
+
+                IReadOnlyDictionary<char, int> result1 = counter.GetCharCounts();
+
+                Thread.Sleep(250);
+
+                counter.Add(EmbeddedFiles.Medium);
+
+                Thread.Sleep(250);
+
+                IReadOnlyDictionary<char, int> result2 = counter.GetCharCounts();
+                Assert.That(result2.Count, Is.GreaterThan(result1.Count));
             }
         }
     }
