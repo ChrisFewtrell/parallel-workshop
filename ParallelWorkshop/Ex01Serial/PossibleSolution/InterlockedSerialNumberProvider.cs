@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace Lurchsoft.ParallelWorkshop.Ex01Serial.SolutionWithInterlocked
+namespace Lurchsoft.ParallelWorkshop.Ex01Serial.PossibleSolution
 {
     public class SerialNumberProvider : ISerialNumberProvider
     {

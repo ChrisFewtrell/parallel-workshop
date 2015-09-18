@@ -12,7 +12,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer.PossibleSolution
     /// This version passes the tests (for me, at least), but I am not sure if it is either 100% correct or
     /// the simplest possible solution. Can you do better?
     /// </summary>
-    public class MultiFileCharacterCounter : ICharacterCounter, IDisposable
+    public class BlockingMultiFileCharacterCounter : ICharacterCounter, IDisposable
     {
         private const int MaxQueue = 1000;
 
@@ -22,7 +22,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer.PossibleSolution
         private readonly Task consumerTask;
         private readonly ManualResetEventSlim emptyEvent = new ManualResetEventSlim();
 
-        public MultiFileCharacterCounter()
+        public BlockingMultiFileCharacterCounter()
         {
             consumerTask = Task.Factory.StartNew(ConsumeQueue);
         }

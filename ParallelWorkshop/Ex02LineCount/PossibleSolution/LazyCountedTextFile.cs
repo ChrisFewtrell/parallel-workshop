@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using Lurchsoft.FileData;
 
-namespace Lurchsoft.ParallelWorkshop.Ex02LineCount.SolutionWithLazy
+namespace Lurchsoft.ParallelWorkshop.Ex02LineCount.PossibleSolution
 {
     public class CountedTextFile : ICountedTextFile
     {

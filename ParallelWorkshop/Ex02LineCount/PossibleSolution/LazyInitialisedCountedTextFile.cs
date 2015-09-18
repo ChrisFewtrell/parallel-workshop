@@ -3,9 +3,9 @@ using System.Linq;
 using System.Threading;
 using Lurchsoft.FileData;
 
-namespace Lurchsoft.ParallelWorkshop.Ex02LineCount.SolutionWithLazyInitializer
+namespace Lurchsoft.ParallelWorkshop.Ex02LineCount.PossibleSolution
 {
-    public class CountedTextFile : ICountedTextFile
+    public class LazyInitialisedCountedTextFile : ICountedTextFile
     {
         private readonly ITextFile textFile;
 
@@ -15,7 +15,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex02LineCount.SolutionWithLazyInitializer
 
         private int numberOfFileReads;
 
-        public CountedTextFile(ITextFile textFile)
+        public LazyInitialisedCountedTextFile(ITextFile textFile)
         {
             this.textFile = textFile;
         }

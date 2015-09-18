@@ -41,16 +41,16 @@
   <ItemGroup>
     <Compile Include="Ex01Serial\ISerialNumberProvider.cs" />
     <Compile Include="Ex01Serial\SerialNumberProvider.cs" />
-    <Compile Include="Ex01Serial\SolutionWithInterlocked\SerialNumberProvider.cs" />
+    <Compile Include="Ex01Serial\PossibleSolution\InterlockedSerialNumberProvider.cs" />
     <Compile Include="Ex02LineCount\CountedTextFile.cs" />
     <Compile Include="Ex02LineCount\ICountedTextFile.cs" />
-    <Compile Include="Ex02LineCount\SolutionWithLazyInitializer\CountedTextFile.cs" />
-    <Compile Include="Ex02LineCount\SolutionWithLazy\CountedTextFile.cs" />
+    <Compile Include="Ex02LineCount\PossibleSolution\LazyInitialisedCountedTextFile.cs" />
+    <Compile Include="Ex02LineCount\PossibleSolution\LazyCountedTextFile.cs" />
     <Compile Include="Ex04ItemCache\CachingFileCharacterCounter.cs" />
     <Compile Include="Ex04ItemCache\IFileCharacterCounter.cs" />
-    <Compile Include="Ex04ItemCache\SolutionWithConcurrentCollection\CachingFileCharacterCounter.cs" />
+    <Compile Include="Ex04ItemCache\PossibleSolution\ConcurrentCachingFileCharacterCounter.cs" />
     <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounter.cs" />
-    <Compile Include="Ex10ProducerConsumer\PossibleSolution\MultiFileCharacterCounter.cs" />
+    <Compile Include="Ex10ProducerConsumer\PossibleSolution\BlockingMultiFileCharacterCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,7 +62,9 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Ex03Cache\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -2,9 +2,9 @@
 using Lurchsoft.FileData;
 using Lurchsoft.FileData.Characters;
 
-namespace Lurchsoft.ParallelWorkshop.Ex04ItemCache.SolutionWithConcurrentCollection
+namespace Lurchsoft.ParallelWorkshop.Ex04ItemCache.PossibleSolution
 {
-    public class CachingFileCharacterCounter : IFileCharacterCounter
+    public class ConcurrentCachingFileCharacterCounter : IFileCharacterCounter
     {
         private readonly ConcurrentDictionary<ITextFile, ICharacterCounter> cache = new ConcurrentDictionary<ITextFile, ICharacterCounter>();
 
