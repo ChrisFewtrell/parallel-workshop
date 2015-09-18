@@ -3,7 +3,7 @@ using System.Linq;
 using FileData;
 using NUnit.Framework;
 
-namespace ParallelWorkshop.Ex03Cache
+namespace ParallelWorkshop.Ex04ItemCache
 {
     [TestFixture]
     public class CachingFileCharacterCounterTests

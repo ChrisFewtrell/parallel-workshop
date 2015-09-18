@@ -1,24 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
 using FileData;
 using FileData.Characters;
 
-namespace ParallelWorkshop.Ex03Cache
+namespace ParallelWorkshop.Ex04ItemCache.SolutionWithConcurrentCollection
 {
     public class CachingFileCharacterCounter : IFileCharacterCounter
     {
-        private readonly IDictionary<ITextFile, ICharacterCounter> cache = new Dictionary<ITextFile, ICharacterCounter>();
+        private readonly ConcurrentDictionary<ITextFile, ICharacterCounter> cache = new ConcurrentDictionary<ITextFile, ICharacterCounter>();
 
         public int NumberOfCallsToComputeCharCounts { get; private set; }
 
         public ICharacterCounter GetCharCounts(ITextFile textFile)
         {
-            ICharacterCounter characterCounter;
-            if (!cache.TryGetValue(textFile, out characterCounter))
-            {
-                cache.Add(textFile, characterCounter = ComputeCharCounts(textFile));
-            }
-
-            return characterCounter;
+            // Concise, huh? It's almost as if ConcurrentDictionary was designed for this...
+            return cache.GetOrAdd(textFile, ComputeCharCounts);
         }
 
         private ICharacterCounter ComputeCharCounts(ITextFile textFile)

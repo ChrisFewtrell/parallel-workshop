@@ -1,7 +1,7 @@
 ﻿using FileData;
 using FileData.Characters;
 
-namespace ParallelWorkshop.Ex03Cache
+namespace ParallelWorkshop.Ex04ItemCache
 {
     public interface IFileCharacterCounter
     {
