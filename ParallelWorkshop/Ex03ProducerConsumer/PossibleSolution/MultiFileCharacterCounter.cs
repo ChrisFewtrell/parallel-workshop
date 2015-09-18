@@ -39,11 +39,6 @@ namespace ParallelWorkshop.Ex03ProducerConsumer.PossibleSolution
 
         public void Add(ITextFile textFile)
         {
-            if (textLineQueue.IsAddingCompleted)
-            {
-                throw new ObjectDisposedException("Counter has been disposed");
-            }
-
             Task task = new Task(() => ProduceFrom(textFile));
             task.ContinueWith(HandleFileProcessed);
             producerTasks.TryAdd(task, textFile);

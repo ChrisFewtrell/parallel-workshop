@@ -29,11 +29,6 @@ namespace ParallelWorkshop.Ex03ProducerConsumer
 
         public void Add(ITextFile textFile)
         {
-            if (textLineQueue.IsAddingCompleted)
-            {
-                throw new ObjectDisposedException("Counter has been disposed");
-            }
-
             Task.Factory.StartNew(() => Process(textFile));
         }
 
