@@ -3,7 +3,7 @@ using System.Threading;
 using FileData;
 using NUnit.Framework;
 
-namespace ParallelWorkshop.Ex03ProducerConsumer
+namespace ParallelWorkshop.Ex10ProducerConsumer
 {
     [TestFixture]
     public class MultiFileCharacterCounterTests
