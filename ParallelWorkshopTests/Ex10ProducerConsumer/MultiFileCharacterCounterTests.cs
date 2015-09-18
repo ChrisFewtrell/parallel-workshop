@@ -38,7 +38,7 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex10ProducerConsumer
                 counter.Add(EmbeddedFiles.Large);
                 counter.Add(EmbeddedFiles.Huge);
 
-                Thread.Sleep(250);
+                Thread.Sleep(50);
                 IReadOnlyDictionary<char, int> result1 = counter.GetCharCounts();
 
                 counter.Add(EmbeddedFiles.Medium);
