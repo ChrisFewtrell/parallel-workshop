@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FileData;
-using FileData.Reading;
 using NUnit.Framework;
 
 namespace ParallelWorkshop.Ex02LineCount
@@ -16,7 +15,7 @@ namespace ParallelWorkshop.Ex02LineCount
         {
             const int NumCalls = 10;
             var countedFile = new CountedTextFile(file);
-            var lineCounts = Enumerable.Range(0, NumCalls).AsParallel().Select(i => countedFile.LineCount).ToList();
+            Enumerable.Range(0, NumCalls).AsParallel().Select(i => countedFile.LineCount).ToList();
             Assert.That(countedFile.NumberOfCallsToCountLines, Is.EqualTo(1));
         }
 

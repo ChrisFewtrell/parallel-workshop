@@ -51,6 +51,9 @@
     <Compile Include="Ex02LineCount\ICountedTextFile.cs" />
     <Compile Include="Ex02LineCount\SolutionWithLazyInitializer\CountedTextFile.cs" />
     <Compile Include="Ex02LineCount\SolutionWithLazy\CountedTextFile.cs" />
+    <Compile Include="Ex03Cache\CachingFileCharacterCounter.cs" />
+    <Compile Include="Ex03Cache\CachingFileCharacterCounterTests.cs" />
+    <Compile Include="Ex03Cache\IFileCharacterCounter.cs" />
     <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounter.cs" />
     <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounterTests.cs" />
     <Compile Include="Ex10ProducerConsumer\PossibleSolution\MultiFileCharacterCounter.cs" />
