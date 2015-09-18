@@ -53,6 +53,7 @@
     <Compile Include="Ex02LineCount\SolutionWithLazy\CountedTextFile.cs" />
     <Compile Include="Ex03ProducerConsumer\MultiFileCharacterCounter.cs" />
     <Compile Include="Ex03ProducerConsumer\MultiFileCharacterCounterTests.cs" />
+    <Compile Include="Ex03ProducerConsumer\PossibleSolution\MultiFileCharacterCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
