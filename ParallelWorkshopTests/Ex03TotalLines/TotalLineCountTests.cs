@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace Lurchsoft.ParallelWorkshopTests.Ex03TotalLines
 {
     [TestFixture]
-    public class CountedTextFileTests
+    public class TotalLineCountTests
     {
         [Test]
         public void GetTotalLineCount_ShouldOnlyReadEachFileOnce_WhenCalledTwiceOnSameThread()
