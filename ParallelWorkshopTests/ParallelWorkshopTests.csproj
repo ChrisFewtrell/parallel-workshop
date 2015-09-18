@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Ex01Serial\SerialNumberProviderTests.cs" />
     <Compile Include="Ex02LineCount\CountedTextFileTests.cs" />
+    <Compile Include="Ex03TotalLines\CountedTextFileTests.cs" />
     <Compile Include="Ex04ItemCache\CachingFileCharacterCounterTests.cs" />
     <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

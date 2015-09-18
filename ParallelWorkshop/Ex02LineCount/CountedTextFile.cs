@@ -26,7 +26,11 @@ namespace Lurchsoft.ParallelWorkshop.Ex02LineCount
             get 
             {
                 // This is inefficient, if called multiple times.
+                //
                 // How can we ensure that the file is only read once?
+                //
+                // In this example, make sure it is read only a total of once, on all calling threads.
+                //
                 // Try at least the following solutions: -
                 // - Lazy<T>
                 // - LazyInitializer<T>
