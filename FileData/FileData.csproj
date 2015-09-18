@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Characters\CharacterTotaliser.cs" />
     <Compile Include="Characters\ICharacterCounter.cs" />
+    <Compile Include="Characters\IFileCharacterCounter.cs" />
     <Compile Include="Characters\IMultiFileCharacterCounter.cs" />
     <Compile Include="EmbeddedFiles.cs" />
     <Compile Include="ITotaliser.cs" />

@@ -52,7 +52,6 @@
     <Compile Include="Ex03TotalLines\PossibleSolution\LazyTotalLineCount.cs" />
     <Compile Include="Ex03TotalLines\TotalLineCount.cs" />
     <Compile Include="Ex04ItemCache\CachingFileCharacterCounter.cs" />
-    <Compile Include="Ex04ItemCache\IFileCharacterCounter.cs" />
     <Compile Include="Ex04ItemCache\PossibleSolution\ConcurrentCachingFileCharacterCounter.cs" />
     <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounter.cs" />
     <Compile Include="Ex10ProducerConsumer\PossibleSolution\BlockingMultiFileCharacterCounter.cs" />
