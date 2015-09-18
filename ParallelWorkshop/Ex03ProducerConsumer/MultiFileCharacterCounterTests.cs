@@ -20,7 +20,7 @@ namespace ParallelWorkshop.Ex03ProducerConsumer
                 IReadOnlyDictionary<char, int> result1 = counter.GetCharCounts();
                 Assert.That(result1, Is.Not.Empty);
 
-                Thread.Sleep(100);
+                Thread.Sleep(250);
 
                 IReadOnlyDictionary<char, int> result2 = counter.GetCharCounts();
                 Assert.That(result2, Is.Not.Empty);

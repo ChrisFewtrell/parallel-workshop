@@ -41,7 +41,6 @@ namespace ParallelWorkshop.Ex03ProducerConsumer
         {
             foreach (string line in textFile.ReadLines())
             {
-                Thread.Sleep(10);
                 textLineQueue.Add(line);
             }
         }
