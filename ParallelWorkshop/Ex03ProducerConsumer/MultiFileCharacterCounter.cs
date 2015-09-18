@@ -20,14 +20,11 @@ namespace ParallelWorkshop.Ex03ProducerConsumer
             Task.Factory.StartNew(ConsumeQueue);
         }
 
-        public IReadOnlyDictionary<char, int> CharCounts
+        public IReadOnlyDictionary<char, int> GetCharCounts()
         {
-            get
-            {
-                // This will return the result at the time of call, but processing might be in progress.
-                // How can we make it block until processing is complete?
-                return totaliser.CharCounts;
-            }
+            // This will return the result at the time of call, but processing might be in progress.
+            // How can we make it block until processing is complete?
+            return totaliser.GetCharCounts();
         }
 
         public void Add(ITextFile textFile)

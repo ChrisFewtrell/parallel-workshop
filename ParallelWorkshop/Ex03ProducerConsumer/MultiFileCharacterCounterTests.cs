@@ -17,12 +17,12 @@ namespace ParallelWorkshop.Ex03ProducerConsumer
                 counter.Add(EmbeddedFiles.Large);
                 counter.Add(EmbeddedFiles.Huge);
 
-                IReadOnlyDictionary<char, int> result1 = counter.CharCounts;
+                IReadOnlyDictionary<char, int> result1 = counter.GetCharCounts();
                 Assert.That(result1, Is.Not.Empty);
 
                 Thread.Sleep(100);
 
-                IReadOnlyDictionary<char, int> result2 = counter.CharCounts;
+                IReadOnlyDictionary<char, int> result2 = counter.GetCharCounts();
                 Assert.That(result2, Is.Not.Empty);
 
                 Assert.That(result2, Is.EqualTo(result1));

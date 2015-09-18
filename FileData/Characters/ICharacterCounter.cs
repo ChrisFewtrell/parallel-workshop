@@ -4,6 +4,6 @@ namespace FileData.Characters
 {
     public interface ICharacterCounter
     {
-        IReadOnlyDictionary<char, int> CharCounts { get; }
+        IReadOnlyDictionary<char, int> GetCharCounts();
     }
 }

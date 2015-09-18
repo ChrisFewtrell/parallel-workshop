@@ -12,7 +12,7 @@ namespace FileDataTests.Characters
             var totaliser = new CharacterTotaliser();
             totaliser.Add("abca.");
             totaliser.Add("foo bar wibble!");
-            var counts = totaliser.CharCounts;
+            var counts = totaliser.GetCharCounts();
             Assert.That(counts['a'], Is.EqualTo(3));
             Assert.That(counts['b'], Is.EqualTo(4));
         }
