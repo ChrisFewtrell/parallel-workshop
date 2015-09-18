@@ -52,6 +52,7 @@
     <Compile Include="Ex04ItemCache\CachingFileCharacterCounter.cs" />
     <Compile Include="Ex04ItemCache\PossibleSolution\ConcurrentCachingFileCharacterCounter.cs" />
     <Compile Include="Ex09ReaderWriter\MultiFileCharacterCounter.cs" />
+    <Compile Include="Ex09ReaderWriter\PossibleSolution\ReaderWriterMultiFileCharacterCounter.cs" />
     <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounter.cs" />
     <Compile Include="Ex10ProducerConsumer\PossibleSolution\BlockingMultiFileCharacterCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
