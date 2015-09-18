@@ -17,7 +17,11 @@ namespace FileData.Characters
 
         public IReadOnlyDictionary<char, int> CharCounts
         {
-            get {  return charCounts; }
+            get
+            {
+                // Clone, so that results are captured at the time of calling this property
+                return new Dictionary<char, int>(charCounts);
+            }
         }
     }
 }
