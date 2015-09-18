@@ -38,15 +38,14 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex10ProducerConsumer
                 counter.Add(EmbeddedFiles.Large);
                 counter.Add(EmbeddedFiles.Huge);
 
-                IReadOnlyDictionary<char, int> result1 = counter.GetCharCounts();
-
                 Thread.Sleep(250);
+                IReadOnlyDictionary<char, int> result1 = counter.GetCharCounts();
 
                 counter.Add(EmbeddedFiles.Medium);
 
                 Thread.Sleep(250);
-
                 IReadOnlyDictionary<char, int> result2 = counter.GetCharCounts();
+
                 Assert.That(result2.Count, Is.GreaterThan(result1.Count));
             }
         }
