@@ -7,7 +7,7 @@ using Lurchsoft.FileData.Characters;
 
 namespace Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer
 {
-    public class MultiFileCharacterCounter : ICharacterCounter, IDisposable
+    public class MultiFileCharacterCounter : IDisposable, IMultiFileCharacterCounter
     {
         private const int MaxQueue = 1000;
 
