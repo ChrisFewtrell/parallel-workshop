@@ -2,6 +2,13 @@
 
 namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution
 {
+    /// <summary>
+    /// A rather unsophisticated (for which read "not very fast") reader-writer lock implementation. Hopefully, it
+    /// is at least correct.
+    /// <para>
+    /// Can you do better?
+    /// </para>
+    /// </summary>
     public class MyReaderWriterLock : IReaderWriterLock
     {
         private readonly object sync = new object();

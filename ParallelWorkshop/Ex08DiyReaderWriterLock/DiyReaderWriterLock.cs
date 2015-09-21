@@ -3,8 +3,8 @@
 namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock
 {
     /// <summary>
-    /// A lock that allows multiple simultaneous reads but only one simultaneous write (which also
-    /// can only occur once all reads have completed).
+    /// A lock that allows multiple simultaneous reads but only one simultaneous write, which also
+    /// can only occur once all reads have completed.
     /// <para>
     /// Purely for fun and education, this should be a Do-It-Yourself implementation of reader-writer
     /// lock semantics. You can use <c>lock()</c>, <see cref="Interlocked"/> and <see cref="Monitor"/> but obviously
