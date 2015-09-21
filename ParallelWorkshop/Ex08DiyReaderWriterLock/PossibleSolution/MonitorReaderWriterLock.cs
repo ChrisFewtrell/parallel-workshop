@@ -33,7 +33,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution
             lock (sync)
             {
                 --readerCount;
-                Monitor.PulseAll(sync);
+                Monitor.Pulse(sync);
             }
         }
 
@@ -52,7 +52,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution
         public void ExitWriteLock()
         {
             writing = false;
-            Monitor.PulseAll(sync);
+            Monitor.Pulse(sync);
             Monitor.Exit(sync);
         }
     }
