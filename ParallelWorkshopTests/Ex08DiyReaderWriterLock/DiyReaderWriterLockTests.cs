@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock;
+using Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution;
 using NUnit.Framework;
 
 namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
@@ -11,14 +13,17 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
         [Test]
         public void Lock_ShouldProtectThreadUnsafeCollectionAgainstUnsafeModification()
         {
-            const int NumReads = 150000, NumWrites = 30000;
-            var state = new State(new DiyReaderWriterLock());
+            const int NumReads = 10000, NumWrites = 30000;
+            var state = new State(new MyReaderWriterLock());
 
             var reader1 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
             var reader2 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
-            var writer = Task.Factory.StartNew(() => PerformWrites(NumWrites, state));
+            var reader3 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
+            var reader4 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
+            var writer1 = Task.Factory.StartNew(() => PerformWrites(NumWrites, state));
+            var writer2 = Task.Factory.StartNew(() => PerformWrites(NumWrites, state));
 
-            Task.WaitAll(reader1, reader2, writer);
+            Task.WaitAll(reader1, reader2, reader3, reader4, writer1, writer2);
         }
 
         private void PerformWrites(int numWrites, State state)
@@ -31,10 +36,10 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
 
         private static void PerformReads(int numReads, State state)
         {
-            var all = new List<string>();
             for (int i = 0; i < numReads; ++i)
             {
-                all.AddRange(state.AllValues);
+                // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
+                state.AllValues.ToList();
             }
         }
 
@@ -60,7 +65,7 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
                     readerWriterLock.EnterReadLock();
                     try
                     {
-                        return values.Values;
+                        return values.Values.ToList();
                     }
                     finally
                     {

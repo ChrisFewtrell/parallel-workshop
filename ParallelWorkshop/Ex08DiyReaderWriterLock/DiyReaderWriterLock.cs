@@ -7,7 +7,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock
     /// can only occur once all reads have completed).
     /// <para>
     /// Purely for fun and education, this should be a Do-It-Yourself implementation of reader-writer
-    /// lock semantics. You can use <see cref="Interlocked"/> and <see cref="Monitor"/> but obviously
+    /// lock semantics. You can use <c>lock()</c>, <see cref="Interlocked"/> and <see cref="Monitor"/> but obviously
     /// you are not allowed to use <see cref="ReaderWriterLock"/> or any similar Framework classes.
     /// </para>
     /// </summary>

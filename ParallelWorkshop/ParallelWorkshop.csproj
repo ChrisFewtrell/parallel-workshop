@@ -54,7 +54,8 @@
     <Compile Include="Ex05DatedSerial\DatedSerial.cs" />
     <Compile Include="Ex05DatedSerial\PossibleSolution\LazyDatedSerial.cs" />
     <Compile Include="Ex08DiyReaderWriterLock\IReaderWriterLock.cs" />
-    <Compile Include="Ex08DiyReaderWriterLock\MyReaderWriterLock.cs" />
+    <Compile Include="Ex08DiyReaderWriterLock\DiyReaderWriterLock.cs" />
+    <Compile Include="Ex08DiyReaderWriterLock\PossibleSolution\MyReaderWriterLock.cs" />
     <Compile Include="Ex09ReaderWriter\MultiFileCharacterCounter.cs" />
     <Compile Include="Ex09ReaderWriter\PossibleSolution\ReaderWriterMultiFileCharacterCounter.cs" />
     <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounter.cs" />
