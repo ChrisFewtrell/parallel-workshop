@@ -9,7 +9,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution
     /// Can you do better?
     /// </para>
     /// </summary>
-    public class MyReaderWriterLock : IReaderWriterLock
+    public class MonitorReaderWriterLock : IReaderWriterLock
     {
         private readonly object sync = new object();
         private int readerCount;
