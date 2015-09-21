@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock;
 using NUnit.Framework;
@@ -23,6 +24,23 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
             var writer2 = Task.Factory.StartNew(() => PerformWrites(NumWrites, state));
 
             Task.WaitAll(reader1, reader2, reader3, reader4, writer1, writer2);
+        }
+
+        [Test]
+        public void Lock_ShouldAllowMultipleSimultaneousReaders()
+        {
+            const int NumReads = 5000, NumWrites = 1000;
+            var state = new State(new DiyReaderWriterLock());
+
+            var reader1 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
+            var reader2 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
+            var reader3 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
+            var reader4 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
+            var writer1 = Task.Factory.StartNew(() => PerformWrites(NumWrites, state));
+
+            Task.WaitAll(reader1, reader2, reader3, reader4, writer1);
+
+            Assert.That(state.MaxSimultaneousReaders, Is.GreaterThan(1));
         }
 
         private void PerformWrites(int numWrites, State state)
@@ -51,16 +69,24 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
         {
             private readonly Dictionary<string, string> values = new Dictionary<string, string>();
             private readonly IReaderWriterLock readerWriterLock;
+            private int curSimultaneousReaders, maxSimultaneousReaders;
 
             public State(IReaderWriterLock readerWriterLock)
             {
                 this.readerWriterLock = readerWriterLock;
             }
 
+            public int MaxSimultaneousReaders
+            {
+                get { return maxSimultaneousReaders; }
+            }
+
             public IEnumerable<string> AllValues
             {
                 get
                 {
+                    int readers = Interlocked.Increment(ref curSimultaneousReaders);
+                    Interlocked.CompareExchange(ref maxSimultaneousReaders, readers, readers - 1);
                     readerWriterLock.EnterReadLock();
                     try
                     {
@@ -69,6 +95,7 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
                     finally
                     {
                         readerWriterLock.ExitReadLock();
+                        Interlocked.Decrement(ref curSimultaneousReaders);
                     }
                 }
             }
