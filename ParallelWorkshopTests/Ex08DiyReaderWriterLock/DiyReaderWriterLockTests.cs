@@ -14,7 +14,7 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
         public void Lock_ShouldProtectThreadUnsafeCollectionAgainstUnsafeModification()
         {
             var state = new State(new DiyReaderWriterLock());
-            var tasks = StartTasks(4, 50000, state, PerformReads).Concat(StartTasks(2, 10000, state, PerformWrites)).ToArray();
+            var tasks = PrepareTasks(4, 50000, state, PerformReads).Concat(PrepareTasks(2, 10000, state, PerformWrites)).ToArray();
 
             Task.WaitAll(tasks); // will throw AggregateException if any task throws an exception
         }
@@ -23,13 +23,13 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
         public void Lock_ShouldAllowMultipleSimultaneousReaders()
         {
             var state = new State(new DiyReaderWriterLock());
-            var tasks = StartTasks(4, 5000, state, PerformReads).Concat(StartTasks(1, 1000, state, PerformWrites)).ToArray();
+            var tasks = PrepareTasks(4, 5000, state, PerformReads).Concat(PrepareTasks(1, 1000, state, PerformWrites)).ToArray();
             
             Task.WaitAll(tasks);
             Assert.That(state.MaxSimultaneousReaders, Is.GreaterThan(1));
         }
 
-        private IEnumerable<Task> StartTasks(int numTasks, int taskSize, State state, Action<int, State> action)
+        private IEnumerable<Task> PrepareTasks(int numTasks, int taskSize, State state, Action<int, State> action)
         {
             return Enumerable.Range(0, numTasks).Select(i => Task.Factory.StartNew(() => action(taskSize, state)));
         }
