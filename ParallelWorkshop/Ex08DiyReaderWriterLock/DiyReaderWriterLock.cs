@@ -6,9 +6,11 @@ namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock
     /// A lock that allows multiple simultaneous reads but only one simultaneous write, which also
     /// can only occur once all reads have completed.
     /// <para>
-    /// Purely for fun and education, this should be a Do-It-Yourself implementation of reader-writer
-    /// lock semantics. You can use <c>lock()</c>, <see cref="Interlocked"/> and <see cref="Monitor"/> but obviously
-    /// you are not allowed to use <see cref="ReaderWriterLock"/> or any similar Framework classes.
+    /// Try at least the following approaches: 
+    /// (1) a reader-writer lock that blocks, releasing the CPU, while waiting to acquire the lock. The
+    ///     use of <see cref="Monitor"/> is suggested for this.
+    /// (2) a reader-writer lock that spins the CPU, while waiting to acquire the lock. The use of
+    ///     <see cref="Interlocked"/> is suggested for this. This is quite a tricky exercise!
     /// </para>
     /// </summary>
     public class DiyReaderWriterLock : IReaderWriterLock
