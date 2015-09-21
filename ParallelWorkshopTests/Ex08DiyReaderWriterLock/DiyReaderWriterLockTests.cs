@@ -13,37 +13,28 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
         [Test]
         public void Lock_ShouldProtectThreadUnsafeCollectionAgainstUnsafeModification()
         {
-            const int NumReads = 50000, NumWrites = 10000;
             var state = new State(new DiyReaderWriterLock());
+            var tasks = StartTasks(4, 50000, state, PerformReads).Concat(StartTasks(2, 10000, state, PerformWrites)).ToArray();
 
-            var reader1 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
-            var reader2 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
-            var reader3 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
-            var reader4 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
-            var writer1 = Task.Factory.StartNew(() => PerformWrites(NumWrites, state));
-            var writer2 = Task.Factory.StartNew(() => PerformWrites(NumWrites, state));
-
-            Task.WaitAll(reader1, reader2, reader3, reader4, writer1, writer2);
+            Task.WaitAll(tasks); // will throw AggregateException if any task throws an exception
         }
 
         [Test]
         public void Lock_ShouldAllowMultipleSimultaneousReaders()
         {
-            const int NumReads = 5000, NumWrites = 1000;
             var state = new State(new DiyReaderWriterLock());
-
-            var reader1 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
-            var reader2 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
-            var reader3 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
-            var reader4 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
-            var writer1 = Task.Factory.StartNew(() => PerformWrites(NumWrites, state));
-
-            Task.WaitAll(reader1, reader2, reader3, reader4, writer1);
-
+            var tasks = StartTasks(4, 5000, state, PerformReads).Concat(StartTasks(1, 1000, state, PerformWrites)).ToArray();
+            
+            Task.WaitAll(tasks);
             Assert.That(state.MaxSimultaneousReaders, Is.GreaterThan(1));
         }
 
-        private void PerformWrites(int numWrites, State state)
+        private IEnumerable<Task> StartTasks(int numTasks, int taskSize, State state, Action<int, State> action)
+        {
+            return Enumerable.Range(0, numTasks).Select(i => Task.Factory.StartNew(() => action(taskSize, state)));
+        }
+
+        private static void PerformWrites(int numWrites, State state)
         {
             for (int i = 0; i < numWrites; ++i)
             {
@@ -60,7 +51,7 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
             }
         }
 
-        private string GetUniqueString()
+        private static string GetUniqueString()
         {
             return Guid.NewGuid().ToString("D");
         }
