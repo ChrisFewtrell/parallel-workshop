@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 
 namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution
 {
@@ -12,7 +11,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution
     /// </summary>
     public class InterlockedReaderWriterLock : IReaderWriterLock
     {
-        private const int OneWriter = 1 << 16;
+        private const int OneWriter = 1 << 28;
 
         private int counts;
 
@@ -21,7 +20,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution
             while (true)
             {
                 int cur = Interlocked.Increment(ref counts);
-                if ((cur & 0xFFFF0000) == 0)
+                if ((cur & 0xF0000000) == 0)
                 {
                     return;
                 }
