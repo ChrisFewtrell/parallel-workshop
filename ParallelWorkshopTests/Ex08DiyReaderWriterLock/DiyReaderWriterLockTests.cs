@@ -13,7 +13,7 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
         [Test]
         public void Lock_ShouldProtectThreadUnsafeCollectionAgainstUnsafeModification()
         {
-            const int NumReads = 10000, NumWrites = 30000;
+            const int NumReads = 50000, NumWrites = 10000;
             var state = new State(new MyReaderWriterLock());
 
             var reader1 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
