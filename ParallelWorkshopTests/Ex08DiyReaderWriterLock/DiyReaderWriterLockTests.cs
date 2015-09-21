@@ -13,8 +13,8 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
         [Test]
         public void Lock_ShouldProtectThreadUnsafeCollectionAgainstUnsafeModification()
         {
-            var state = new State(new DiyReaderWriterLock());
-            var tasks = PrepareTasks(4, 50000, state, PerformReads).Concat(PrepareTasks(2, 10000, state, PerformWrites)).ToArray();
+            var list = new ReaderWriterLockedList(new DiyReaderWriterLock());
+            Task[] tasks = PrepareTasks(4, 20000, list, PerformReads).Concat(PrepareTasks(2, 6000, list, PerformWrites)).ToArray();
 
             Task.WaitAll(tasks); // will throw AggregateException if any task throws an exception
         }
@@ -22,47 +22,43 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
         [Test]
         public void Lock_ShouldAllowMultipleSimultaneousReaders()
         {
-            var state = new State(new DiyReaderWriterLock());
-            var tasks = PrepareTasks(4, 5000, state, PerformReads).Concat(PrepareTasks(1, 1000, state, PerformWrites)).ToArray();
+            var list = new ReaderWriterLockedList(new DiyReaderWriterLock());
+            Task[] tasks = PrepareTasks(4, 5000, list, PerformReads).Concat(PrepareTasks(1, 1000, list, PerformWrites)).ToArray();
             
             Task.WaitAll(tasks);
-            Assert.That(state.MaxSimultaneousReaders, Is.GreaterThan(1));
+            Assert.That(list.MaxSimultaneousReaders, Is.GreaterThan(1));
         }
 
-        private IEnumerable<Task> PrepareTasks(int numTasks, int taskSize, State state, Action<int, State> action)
+        private IEnumerable<Task> PrepareTasks(int numTasks, int taskSize, ReaderWriterLockedList state, Action<int, ReaderWriterLockedList> action)
         {
             return Enumerable.Range(0, numTasks).Select(i => Task.Factory.StartNew(() => action(taskSize, state)));
         }
 
-        private static void PerformWrites(int numWrites, State state)
+        private static void PerformWrites(int numWrites, ReaderWriterLockedList state)
         {
             for (int i = 0; i < numWrites; ++i)
             {
-                state.Add(GetUniqueString(), GetUniqueString());
+                state.Add(Guid.NewGuid().ToString("D"));
             }
         }
 
-        private static void PerformReads(int numReads, State state)
+        private static void PerformReads(int numReads, ReaderWriterLockedList state)
         {
             for (int i = 0; i < numReads; ++i)
             {
-                // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
-                state.AllValues.ToList();
+                state.GetAllValues();
             }
         }
 
-        private static string GetUniqueString()
+        /// <summary>This wraps a <see cref="List{T}"/>, exposing one read and one write operation, protected by a reader-writer lock.</summary>
+        private class ReaderWriterLockedList
         {
-            return Guid.NewGuid().ToString("D");
-        }
+            private readonly List<string> values = new List<string>();
 
-        private class State
-        {
-            private readonly Dictionary<string, string> values = new Dictionary<string, string>();
             private readonly IReaderWriterLock readerWriterLock;
             private int curSimultaneousReaders, maxSimultaneousReaders;
 
-            public State(IReaderWriterLock readerWriterLock)
+            public ReaderWriterLockedList(IReaderWriterLock readerWriterLock)
             {
                 this.readerWriterLock = readerWriterLock;
             }
@@ -72,31 +68,28 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
                 get { return maxSimultaneousReaders; }
             }
 
-            public IEnumerable<string> AllValues
+            public IEnumerable<string> GetAllValues()
             {
-                get
+                int readers = Interlocked.Increment(ref curSimultaneousReaders);
+                Interlocked.CompareExchange(ref maxSimultaneousReaders, readers, readers - 1);
+                readerWriterLock.EnterReadLock();
+                try
                 {
-                    int readers = Interlocked.Increment(ref curSimultaneousReaders);
-                    Interlocked.CompareExchange(ref maxSimultaneousReaders, readers, readers - 1);
-                    readerWriterLock.EnterReadLock();
-                    try
-                    {
-                        return values.Values.ToList();
-                    }
-                    finally
-                    {
-                        readerWriterLock.ExitReadLock();
-                        Interlocked.Decrement(ref curSimultaneousReaders);
-                    }
+                    return new List<string>(values); // snapshot
+                }
+                finally
+                {
+                    readerWriterLock.ExitReadLock();
+                    Interlocked.Decrement(ref curSimultaneousReaders);
                 }
             }
 
-            public void Add(string key, string value)
+            public void Add(string value)
             {
                 readerWriterLock.EnterWriteLock();
                 try
                 {
-                    values[key] = value;
+                    values.Add(value);
                 }
                 finally
                 {
