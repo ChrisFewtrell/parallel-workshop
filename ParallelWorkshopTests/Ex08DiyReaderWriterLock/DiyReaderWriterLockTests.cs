@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock;
-using Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution;
 using NUnit.Framework;
 
 namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
@@ -14,7 +13,7 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
         public void Lock_ShouldProtectThreadUnsafeCollectionAgainstUnsafeModification()
         {
             const int NumReads = 50000, NumWrites = 10000;
-            var state = new State(new MyReaderWriterLock());
+            var state = new State(new DiyReaderWriterLock());
 
             var reader1 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
             var reader2 = Task.Factory.StartNew(() => PerformReads(NumReads, state));
