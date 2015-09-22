@@ -55,6 +55,7 @@
     <Compile Include="Ex05DatedSerial\PossibleSolution\LazyDatedSerial.cs" />
     <Compile Include="Ex07DiyLazy\DiyLazy.cs" />
     <Compile Include="Ex07DiyLazy\ILazy.cs" />
+    <Compile Include="Ex07DiyLazy\PossibleSolution\ExecutionAndPublicationWithInterlockLazy.cs" />
     <Compile Include="Ex07DiyLazy\PossibleSolution\ExecutionAndPublicationWithLockLazy.cs" />
     <Compile Include="Ex07DiyLazy\PossibleSolution\PublicationOnlyLazy.cs" />
     <Compile Include="Ex08DiyReaderWriterLock\IReaderWriterLock.cs" />
