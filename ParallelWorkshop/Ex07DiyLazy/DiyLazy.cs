@@ -23,7 +23,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex07DiyLazy
     /// <remarks>
     /// Obviously, you don't get to use <see cref="System.Lazy{T}"/> in your solution!
     /// </remarks>
-    public class DiyLazy<T> : ILazy<T>
+    public class DiyLazy<T> : ILazy<T> where T : class
     {
         private readonly Func<T> evaluator;
 
@@ -45,7 +45,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex07DiyLazy
             get
             {
                 // Return whatever mode is supported by your implementation. Used by tests to decide what to assert.
-                return LazyThreadSafetyMode.PublicationOnly;
+                throw new NotImplementedException();
             }
         }
     }

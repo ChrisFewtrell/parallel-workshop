@@ -6,7 +6,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex07DiyLazy
     /// A lazily-evaluated value.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface ILazy<out T>
+    public interface ILazy<out T> where T : class
     {
         T Value { get; }
 
