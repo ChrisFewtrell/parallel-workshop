@@ -17,7 +17,7 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex07DiyLazy
         [Test]
         public void LineCount_ShouldNotReadTheFile_UntilLineCountIsCalled()
         {
-            var countedFile = new CountedTextFile(EmbeddedFiles.Medium, f => new DiyLazy<int>(f));
+            var countedFile = new CountedTextFile(EmbeddedFiles.Medium, f => new DiyLazy<FileLineCount>(f));
             Assert.That(countedFile.NumberOfCallsToCountLines, Is.EqualTo(0));
         }
 
@@ -25,7 +25,7 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex07DiyLazy
         public void LineCount_OnManyThreads_ShouldAlwaysGetTheSameResult([ValueSource("Files")] ITextFile file)
         {
             const int NumCalls = 10;
-            var countedFile = new CountedTextFile(file, f => new DiyLazy<int>(f));
+            var countedFile = new CountedTextFile(file, f => new DiyLazy<FileLineCount>(f));
             var lineCounts = Enumerable.Range(0, NumCalls).AsParallel().Select(i => countedFile.LineCount).ToList();
             Assert.That(lineCounts.Distinct().Count(), Is.EqualTo(1));
         }
@@ -34,8 +34,8 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex07DiyLazy
         public void LineCount_OnManyThreads_ShouldOnlyReadFileOnce([ValueSource("Files")] ITextFile file)
         {
             const int NumCalls = 10;
-            ILazy<int> lazy = null;
-            var countedFile = new CountedTextFile(file, f => lazy = new DiyLazy<int>(f));
+            ILazy<FileLineCount> lazy = null;
+            var countedFile = new CountedTextFile(file, f => lazy = new DiyLazy<FileLineCount>(f));
             Enumerable.Range(0, NumCalls).AsParallel().Select(i => countedFile.LineCount).ToList();
 
             switch (lazy.Mode)
@@ -52,11 +52,11 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex07DiyLazy
         private class CountedTextFile : ICountedTextFile
         {
             private readonly ITextFile textFile;
-            private readonly ILazy<int> lazyCount;
+            private readonly ILazy<FileLineCount> lazyCount;
 
             private int numberOfFileReads;
 
-            public CountedTextFile(ITextFile textFile, Func<Func<int>, ILazy<int>> makeLazy)
+            public CountedTextFile(ITextFile textFile, Func<Func<FileLineCount>, ILazy<FileLineCount>> makeLazy)
             {
                 this.textFile = textFile;
                 lazyCount = makeLazy(CountLines);
@@ -67,15 +67,20 @@ namespace Lurchsoft.ParallelWorkshopTests.Ex07DiyLazy
                 return textFile.ReadLines();
             }
 
-            public int LineCount { get { return lazyCount.Value; } }
+            public int LineCount { get { return lazyCount.Value.Count; } }
 
             public int NumberOfCallsToCountLines { get { return numberOfFileReads; } }
 
-            private int CountLines()
+            private FileLineCount CountLines()
             {
                 Interlocked.Increment(ref numberOfFileReads);
-                return ReadLines().Count();
+                return new FileLineCount { Count =ReadLines().Count() };
             }
+        }
+
+        private class FileLineCount
+        {
+            public int Count { get; set; }
         }
     }
 }
