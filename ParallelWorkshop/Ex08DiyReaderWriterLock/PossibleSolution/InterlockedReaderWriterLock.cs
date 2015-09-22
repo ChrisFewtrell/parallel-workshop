@@ -11,7 +11,8 @@ namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution
     /// </summary>
     public class InterlockedReaderWriterLock : IReaderWriterLock
     {
-        private const int OneWriter = 1 << 28;
+        private const int OneWriter = 1 << 24;
+        private const uint WriterMask = 0xFF000000;
 
         private int counts;
 
@@ -20,7 +21,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution
             while (true)
             {
                 int cur = Interlocked.Increment(ref counts);
-                if ((cur & 0xF0000000) == 0)
+                if ((cur & WriterMask) == 0)
                 {
                     return;
                 }
