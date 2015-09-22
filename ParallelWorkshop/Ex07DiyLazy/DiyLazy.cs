@@ -33,5 +33,14 @@ namespace Lurchsoft.ParallelWorkshop.Ex07DiyLazy
                 throw new NotImplementedException();
             }
         }
+
+        public LazyThreadSafetyMode Mode
+        {
+            get
+            {
+                // Return whatever mode is supported by your implementation. Used by tests to decide what to assert.
+                return LazyThreadSafetyMode.PublicationOnly;
+            }
+        }
     }
 }
