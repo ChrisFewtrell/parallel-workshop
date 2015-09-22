@@ -3,11 +3,15 @@
 namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock
 {
     /// <summary>
-    /// Try at least the following approaches: 
-    /// (1) a reader-writer lock that blocks, releasing the CPU, while waiting to acquire the lock. The
+    /// Try at least the following approaches:
+    /// <list type="number">
+    /// <item>a reader-writer lock that blocks, releasing the CPU, while waiting to acquire the lock. The
     ///     use of <see cref="Monitor"/> is suggested for this.
-    /// (2) a reader-writer lock that spins the CPU, while waiting to acquire the lock. The use of
+    /// </item>
+    /// <item> a reader-writer lock that spins the CPU, while waiting to acquire the lock. The use of
     ///     <see cref="Interlocked"/> is suggested for this. This is quite a tricky exercise!
+    /// </item>
+    /// </list> 
     /// </summary>
     public class DiyReaderWriterLock : IReaderWriterLock
     {
