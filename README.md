@@ -18,12 +18,13 @@ is to: -
 Among the .Net framework classes that should be considered are: -
 * Interlocked
 * Volatile
-* Lazy
-* LazyInitializer
+* Monitor
+* Lazy<T>
+* LazyInitializer<T>
 * ReaderWriterLock and ReaderWriterLockSlim
 * ManualResetEvent
-* ConcurrentDictionary, and other concurrent collections
-* BlockingCollection
+* ConcurrentDictionary<T>, and other concurrent collections
+* BlockingCollection<T>
 
 If you there are any classes in the above list that you have never
 encountered before, it would be worth quickly reading their online
