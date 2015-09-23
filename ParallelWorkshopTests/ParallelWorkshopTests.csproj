@@ -49,8 +49,8 @@
     <Compile Include="Ex04ItemCache\CachingFileCharacterCounterTests.cs" />
     <Compile Include="Ex05DatedSerial\DatedSerialTests.cs" />
     <Compile Include="Ex07DiyLazy\DiyLazyTests.cs" />
-    <Compile Include="Ex08DiyReaderWriterLock\DiyReaderWriterLockTests.cs" />
-    <Compile Include="Ex09ReaderWriter\MultiFileCharacterCounterTests.cs" />
+    <Compile Include="Ex09DiyReaderWriterLock\DiyReaderWriterLockTests.cs" />
+    <Compile Include="Ex08ReaderWriter\MultiFileCharacterCounterTests.cs" />
     <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

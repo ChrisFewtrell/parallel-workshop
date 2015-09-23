@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock.PossibleSolution
+namespace Lurchsoft.ParallelWorkshop.Ex09DiyReaderWriterLock.PossibleSolution
 {
     /// <summary>
     /// A rather unsophisticated (for which read "not very fast") reader-writer lock implementation. Hopefully, it

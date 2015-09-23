@@ -3,7 +3,7 @@ using System.Threading;
 using Lurchsoft.FileData;
 using Lurchsoft.FileData.Characters;
 
-namespace Lurchsoft.ParallelWorkshop.Ex09ReaderWriter.PossibleSolution
+namespace Lurchsoft.ParallelWorkshop.Ex08ReaderWriter.PossibleSolution
 {
     public class ReaderWriterMultiFileCharacterCounter : IMultiFileCharacterCounter
     {
