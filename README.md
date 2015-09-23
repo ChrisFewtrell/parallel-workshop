@@ -16,15 +16,19 @@ is to: -
 * Get experience of using different classes and techniques for parallel code
 
 Among the .Net framework classes that should be considered are: -
-* Interlocked
-* Volatile
-* Monitor
-* Lazy<T>
-* LazyInitializer<T>
-* ReaderWriterLock and ReaderWriterLockSlim
-* ManualResetEvent
-* ConcurrentDictionary<T>, and other concurrent collections
-* BlockingCollection<T>
+
+Class | Purpose
+----- | -------
+
+Interlocked | Perform simple operations thread-safely, without locks
+Volatile | Perform reads and writes thread-safely, without locks
+Monitor | The classic .Net lock, used by the `lock` keyword. Also allows basic signalling between threads.
+Lazy<T> | Initialise a value only when needed, and then only once. Choice of thread-safety levels.
+LazyInitializer<T> | Initialise a value only when needed, and then only once. Unlike Lazy<T>, does not involve instantiating an additional object.
+ReaderWriterLock and ReaderWriterLockSlim | Lock allowing multiple simultaneous reads, but only one simultaneous write (which cannot coincide with any read)
+ManualResetEvent | A way to signal events between threads. Has some advantages over Monitor.
+ConcurrentDictionary<T>, and other concurrent collections | Thread-safe collections, with special operations targetting parallel usage.
+BlockingCollection<T> | Excellent class for producer-consumer pattern.
 
 If you there are any classes in the above list that you have never
 encountered before, it would be worth quickly reading their online
