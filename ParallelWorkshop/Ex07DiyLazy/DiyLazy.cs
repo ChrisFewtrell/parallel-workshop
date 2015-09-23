@@ -21,7 +21,8 @@ namespace Lurchsoft.ParallelWorkshop.Ex07DiyLazy
     /// </list>
     /// </summary>
     /// <remarks>
-    /// Obviously, you don't get to use <see cref="System.Lazy{T}"/> in your solution!
+    /// Some solutions will be easier if you restrict the generic type to a reference type. Do so if you wish.
+    /// <para>Obviously, you don't get to use <see cref="System.Lazy{T}"/> in your solution!</para>
     /// </remarks>
     public class DiyLazy<T> : ILazy<T> where T : class
     {

@@ -3,12 +3,14 @@ using System.Threading;
 
 namespace Lurchsoft.ParallelWorkshop.Ex07DiyLazy.PossibleSolution
 {
-    public class ExecutionAndPublicationWithInterlockLazy<T> : ILazy<T> where T : class
+    public class ExecutionAndPublicationWithInterlockLazy<T> : ILazy<T>
     {
+        private const int Uninitialised = 0, Initialising = 1, Initialised = 2; // can't do Interlocked operations on Enums :-(
+
         private readonly Func<T> evaluator;
 
         private T value;
-        private int state;
+        private int state = Uninitialised;
 
         public ExecutionAndPublicationWithInterlockLazy(Func<T> evaluator)
         {
@@ -21,19 +23,19 @@ namespace Lurchsoft.ParallelWorkshop.Ex07DiyLazy.PossibleSolution
             {
                 while (true)
                 { 
-                    int prevState = Interlocked.CompareExchange(ref state, 1, 0);
+                    int prevState = Interlocked.CompareExchange(ref state, Initialising, Uninitialised);
                     switch (prevState)
                     {
-                        case 0:
+                        case Uninitialised:
                             T newValue = value = evaluator();
-                            Volatile.Write(ref state, 2);
+                            Volatile.Write(ref state, Initialised);
                             return newValue;
 
-                        case 1:
+                        case Initialising:
                             Thread.Yield();
                             break;
 
-                        case 2:
+                        case Initialised:
                             return value;
                     }
                 }
