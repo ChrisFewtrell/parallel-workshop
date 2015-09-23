@@ -17,9 +17,11 @@ is to: -
 
 Among the .Net framework classes that should be considered are: -
 * Interlocked
+* Volatile
 * Lazy
 * LazyInitializer
 * ReaderWriterLock and ReaderWriterLockSlim
+* ManualResetEvent
 * ConcurrentDictionary, and other concurrent collections
 * BlockingCollection
 
