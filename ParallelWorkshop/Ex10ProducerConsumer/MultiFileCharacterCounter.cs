@@ -7,6 +7,17 @@ using Lurchsoft.FileData.Characters;
 
 namespace Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer
 {
+    /// <summary>
+    /// This uses <see cref="BlockingCollection{T}"/> to implement a producer-consumer pattern using very
+    /// little code.
+    /// <para>
+    /// The main thing that you should do in this exercise is to understand how the producer-consumer pattern
+    /// is implemented here.
+    /// </para>
+    /// <para>
+    /// The coding exercise is something of a side-show. To make the tests go green, you'll need to add some
+    /// extra co-ordination logic to allow an external class to make a call to get queue results while it's still "live".</para>
+    /// </summary>
     public class MultiFileCharacterCounter : IDisposable, IMultiFileCharacterCounter
     {
         private const int MaxQueue = 1000;
