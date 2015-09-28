@@ -25,7 +25,7 @@ Monitor | The classic .Net lock, used by the `lock` keyword. Allows only a singl
 Lazy<T> | Initialise a value only when needed, and then only once. Choice of thread-safety levels.
 LazyInitializer<T> | Initialise a value only when needed, and then only once. Unlike Lazy<T>, does not involve instantiating an additional object.
 ReaderWriterLock and ReaderWriterLockSlim | Lock allowing multiple simultaneous reads, but only one simultaneous write (which cannot coincide with any read). Slower to enter and exit than Monitor, so use only when there is a real benefit to multiple simultaneous reads. Can support re-entrance, at additional cost.
-ManualResetEvent | A way to signal events between threads. Has some advantages over Monitor.
+ManualResetEventSlim | A way to signal events between threads. Has some advantages over Monitor. Note that this is almost always better than the old ManualResetEvent class.
 ConcurrentDictionary<T>, and other concurrent collections | Thread-safe collections, with special operations targetting parallel usage.
 BlockingCollection<T> | Excellent class for producer-consumer pattern.
 
