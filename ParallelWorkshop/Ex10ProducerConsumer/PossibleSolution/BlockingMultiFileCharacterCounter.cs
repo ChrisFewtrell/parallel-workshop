@@ -20,7 +20,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer.PossibleSolution
         private readonly BlockingCollection<string> textLineQueue = new BlockingCollection<string>(MaxQueue);
         private readonly ConcurrentDictionary<Task, ITextFile> producerTasks = new ConcurrentDictionary<Task, ITextFile>();
         private readonly Task consumerTask;
-        private readonly ManualResetEventSlim emptyEvent = new ManualResetEventSlim();
+        private readonly AutoResetEvent emptyEvent = new AutoResetEvent(false);
 
         public BlockingMultiFileCharacterCounter()
         {
@@ -31,7 +31,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer.PossibleSolution
         {
             while (textLineQueue.Count > 0 || producerTasks.Count > 0)
             {
-                emptyEvent.Wait();
+                emptyEvent.WaitOne();
             }
 
             return totaliser.GetCharCounts();
