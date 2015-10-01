@@ -67,6 +67,7 @@
     <Compile Include="Ex09ProducerConsumer\MultiFileCharacterCounter.cs" />
     <Compile Include="Ex09ProducerConsumer\PossibleSolution\BlockingMultiFileCharacterCounter.cs" />
     <Compile Include="Ex10WaitHalfWay\LimitedModeCharacterCounter.cs" />
+    <Compile Include="Ex10WaitHalfWay\PossibleSolution\BarrierLimitedModeCharacterCounter.cs" />
     <Compile Include="Ex10WaitHalfWay\SystemMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
