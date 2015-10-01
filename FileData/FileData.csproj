@@ -51,6 +51,7 @@
     <Compile Include="ITextFileSource.cs" />
     <Compile Include="Reading\EmbeddedTextFileSource.cs" />
     <Compile Include="Reading\EmbeddedTextFile.cs" />
+    <Compile Include="Util\StartStop.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TextFiles\HackersDictionary.txt" />

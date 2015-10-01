@@ -28,6 +28,7 @@ ReaderWriterLock and ReaderWriterLockSlim | Lock allowing multiple simultaneous 
 ManualResetEventSlim | A way to signal events between threads. Has some advantages over Monitor. Note that this is almost always better than the old ManualResetEvent class.
 ConcurrentDictionary<T>, and other concurrent collections | Thread-safe collections, with special operations targetting parallel usage.
 BlockingCollection<T> | Excellent class for producer-consumer pattern.
+Barrier | Co-ordinates several threads in reaching a certain point in an operation
 
 If you there are any classes in the above list that you have never
 encountered before, it would be worth quickly reading their online
