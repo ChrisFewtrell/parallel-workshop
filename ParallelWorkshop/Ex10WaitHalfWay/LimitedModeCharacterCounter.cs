@@ -6,11 +6,16 @@ using Lurchsoft.FileData.Characters;
 
 namespace Lurchsoft.ParallelWorkshop.Ex10WaitHalfWay
 {
-    public class BufferedCharacterCounter : ICharacterCounter
+    /// <summary>
+    /// A character counter that simulates a situation where information is coming from a system that can only
+    /// be either reading files or counting characters. If one thread tries to read while another counts, it
+    /// will fail. This limitation is simulated by <see cref="SystemMode"/>.
+    /// </summary>
+    public class LimitedModeCharacterCounter : ICharacterCounter
     {
         private readonly Lazy<IReadOnlyDictionary<char, int>> charCounts;
 
-        public BufferedCharacterCounter(ITextFile textFile)
+        public LimitedModeCharacterCounter(ITextFile textFile)
         {
             charCounts = new Lazy<IReadOnlyDictionary<char, int>>(() => BufferAndCount(textFile));
         }
@@ -28,7 +33,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex10WaitHalfWay
 
         private static IReadOnlyCollection<string> ReadAllLines(ITextFile textFile)
         {
-            using (SystemMode.Reader)
+            using (SystemMode.Reader) // don't remove this - that's cheating!
             {
                 return textFile.ReadLines().ToList();
             }
@@ -36,7 +41,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex10WaitHalfWay
 
         private IReadOnlyDictionary<char, int> ComputeCharCounts(IReadOnlyCollection<string> allLines)
         {
-            using (SystemMode.Counter)
+            using (SystemMode.Counter) // don't remove this - that's cheating!
             {
                 var totaliser = new CharacterTotaliser();
                 foreach (string line in allLines)
