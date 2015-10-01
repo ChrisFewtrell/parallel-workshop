@@ -53,19 +53,19 @@
     <Compile Include="Ex04ItemCache\PossibleSolution\ConcurrentCachingFileCharacterCounter.cs" />
     <Compile Include="Ex05DatedSerial\DatedSerial.cs" />
     <Compile Include="Ex05DatedSerial\PossibleSolution\LazyDatedSerial.cs" />
-    <Compile Include="Ex07DiyLazy\DiyLazy.cs" />
-    <Compile Include="Ex07DiyLazy\ILazy.cs" />
-    <Compile Include="Ex07DiyLazy\PossibleSolution\ExecutionAndPublicationWithInterlockLazy.cs" />
-    <Compile Include="Ex07DiyLazy\PossibleSolution\ExecutionAndPublicationWithLockLazy.cs" />
-    <Compile Include="Ex07DiyLazy\PossibleSolution\PublicationOnlyLazy.cs" />
-    <Compile Include="Ex09DiyReaderWriterLock\IReaderWriterLock.cs" />
-    <Compile Include="Ex09DiyReaderWriterLock\DiyReaderWriterLock.cs" />
-    <Compile Include="Ex09DiyReaderWriterLock\PossibleSolution\InterlockedReaderWriterLock.cs" />
-    <Compile Include="Ex09DiyReaderWriterLock\PossibleSolution\MonitorReaderWriterLock.cs" />
-    <Compile Include="Ex08ReaderWriter\MultiFileCharacterCounter.cs" />
-    <Compile Include="Ex08ReaderWriter\PossibleSolution\ReaderWriterMultiFileCharacterCounter.cs" />
-    <Compile Include="Ex10ProducerConsumer\MultiFileCharacterCounter.cs" />
-    <Compile Include="Ex10ProducerConsumer\PossibleSolution\BlockingMultiFileCharacterCounter.cs" />
+    <Compile Include="Ex06DiyLazy\DiyLazy.cs" />
+    <Compile Include="Ex06DiyLazy\ILazy.cs" />
+    <Compile Include="Ex06DiyLazy\PossibleSolution\ExecutionAndPublicationWithInterlockLazy.cs" />
+    <Compile Include="Ex06DiyLazy\PossibleSolution\ExecutionAndPublicationWithLockLazy.cs" />
+    <Compile Include="Ex06DiyLazy\PossibleSolution\PublicationOnlyLazy.cs" />
+    <Compile Include="Ex08DiyReaderWriterLock\IReaderWriterLock.cs" />
+    <Compile Include="Ex08DiyReaderWriterLock\DiyReaderWriterLock.cs" />
+    <Compile Include="Ex08DiyReaderWriterLock\PossibleSolution\InterlockedReaderWriterLock.cs" />
+    <Compile Include="Ex08DiyReaderWriterLock\PossibleSolution\MonitorReaderWriterLock.cs" />
+    <Compile Include="Ex07ReaderWriter\MultiFileCharacterCounter.cs" />
+    <Compile Include="Ex07ReaderWriter\PossibleSolution\ReaderWriterMultiFileCharacterCounter.cs" />
+    <Compile Include="Ex09ProducerConsumer\MultiFileCharacterCounter.cs" />
+    <Compile Include="Ex09ProducerConsumer\PossibleSolution\BlockingMultiFileCharacterCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,7 +77,9 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Ex10WaitHalfWay\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

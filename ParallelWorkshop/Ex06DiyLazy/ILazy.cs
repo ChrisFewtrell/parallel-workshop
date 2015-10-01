@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace Lurchsoft.ParallelWorkshop.Ex07DiyLazy
+namespace Lurchsoft.ParallelWorkshop.Ex06DiyLazy
 {
     /// <summary>
     /// A lazily-evaluated value.

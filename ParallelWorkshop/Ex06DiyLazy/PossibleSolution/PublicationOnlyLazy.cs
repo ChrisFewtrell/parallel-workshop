@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace Lurchsoft.ParallelWorkshop.Ex07DiyLazy.PossibleSolution
+namespace Lurchsoft.ParallelWorkshop.Ex06DiyLazy.PossibleSolution
 {
     public class PublicationOnlyLazy<T> : ILazy<T> where T : class
     {

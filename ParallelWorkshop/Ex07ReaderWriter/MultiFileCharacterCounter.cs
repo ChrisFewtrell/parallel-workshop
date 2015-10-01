@@ -2,7 +2,7 @@
 using Lurchsoft.FileData;
 using Lurchsoft.FileData.Characters;
 
-namespace Lurchsoft.ParallelWorkshop.Ex08ReaderWriter
+namespace Lurchsoft.ParallelWorkshop.Ex07ReaderWriter
 {
     public class MultiFileCharacterCounter : IMultiFileCharacterCounter
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Lurchsoft.FileData;
 using Lurchsoft.FileData.Characters;
 
-namespace Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer
+namespace Lurchsoft.ParallelWorkshop.Ex09ProducerConsumer
 {
     /// <summary>
     /// This uses <see cref="BlockingCollection{T}"/> to implement a producer-consumer pattern using very

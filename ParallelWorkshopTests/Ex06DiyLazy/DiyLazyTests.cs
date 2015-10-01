@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading;
 using Lurchsoft.FileData;
 using Lurchsoft.FileData.Lines;
-using Lurchsoft.ParallelWorkshop.Ex07DiyLazy;
+using Lurchsoft.ParallelWorkshop.Ex06DiyLazy;
 using NUnit.Framework;
 
-namespace Lurchsoft.ParallelWorkshopTests.Ex07DiyLazy
+namespace Lurchsoft.ParallelWorkshopTests.Ex06DiyLazy
 {
     [TestFixture]
     public class DiyLazyTests

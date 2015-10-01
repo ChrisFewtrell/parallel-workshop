@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Lurchsoft.FileData;
 using Lurchsoft.FileData.Characters;
 
-namespace Lurchsoft.ParallelWorkshop.Ex10ProducerConsumer.PossibleSolution
+namespace Lurchsoft.ParallelWorkshop.Ex09ProducerConsumer.PossibleSolution
 {
     /// <summary>
     /// This version passes the tests (for me, at least), but I am not sure if it is either 100% correct or

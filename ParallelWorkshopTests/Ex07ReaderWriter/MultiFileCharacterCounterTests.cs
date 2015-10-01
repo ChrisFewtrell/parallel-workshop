@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Lurchsoft.FileData;
-using Lurchsoft.ParallelWorkshop.Ex08ReaderWriter;
+using Lurchsoft.ParallelWorkshop.Ex07ReaderWriter;
 using NUnit.Framework;
 
-namespace Lurchsoft.ParallelWorkshopTests.Ex08ReaderWriter
+namespace Lurchsoft.ParallelWorkshopTests.Ex07ReaderWriter
 {
     [TestFixture]
     public class MultiFileCharacterCounterTests

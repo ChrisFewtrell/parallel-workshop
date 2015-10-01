@@ -1,4 +1,4 @@
-﻿namespace Lurchsoft.ParallelWorkshop.Ex09DiyReaderWriterLock
+﻿namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock
 {
     /// <summary>
     /// A lock that allows multiple simultaneous reads but only one simultaneous write, which also

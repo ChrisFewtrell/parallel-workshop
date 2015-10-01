@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace Lurchsoft.ParallelWorkshop.Ex09DiyReaderWriterLock
+namespace Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock
 {
     /// <summary>
     /// Try at least the following approaches:

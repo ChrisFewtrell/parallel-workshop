@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Lurchsoft.ParallelWorkshop.Ex09DiyReaderWriterLock;
+using Lurchsoft.ParallelWorkshop.Ex08DiyReaderWriterLock;
 using NUnit.Framework;
 
-namespace Lurchsoft.ParallelWorkshopTests.Ex09DiyReaderWriterLock
+namespace Lurchsoft.ParallelWorkshopTests.Ex08DiyReaderWriterLock
 {
     public class DiyReaderWriterLockTests
     {
