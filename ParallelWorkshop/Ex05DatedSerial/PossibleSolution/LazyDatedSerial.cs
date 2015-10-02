@@ -4,7 +4,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex05DatedSerial.PossibleSolution
 {
     public class LazyDatedSerial
     {
-        private Lazy<ThreadSafeSerial> serial = new Lazy<ThreadSafeSerial>
+        private readonly Lazy<ThreadSafeSerial> serial = new Lazy<ThreadSafeSerial>
             (() => new ThreadSafeSerial(DateTime.Now.ToShortDateString()), LazyThreadSafetyMode.ExecutionAndPublication);
 
         public string GetNextSerial()
