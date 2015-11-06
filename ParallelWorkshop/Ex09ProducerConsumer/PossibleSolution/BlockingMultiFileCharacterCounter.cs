@@ -72,10 +72,7 @@ namespace Lurchsoft.ParallelWorkshop.Ex09ProducerConsumer.PossibleSolution
                 else
                 {
                     emptyEvent.Set();
-                    try { line = textLineQueue.Take(); } catch (InvalidOperationException) { break; }
                 }
-
-                totaliser.Add(line);
             }
         }
 

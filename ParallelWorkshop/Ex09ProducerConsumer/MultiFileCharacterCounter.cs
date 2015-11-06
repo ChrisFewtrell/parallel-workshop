@@ -56,8 +56,10 @@ namespace Lurchsoft.ParallelWorkshop.Ex09ProducerConsumer
             while (!textLineQueue.IsCompleted)
             {
                 string line;
-                try { line = textLineQueue.Take(); } catch (InvalidOperationException) { break; }
-                totaliser.Add(line);
+                if (textLineQueue.TryTake(out line))
+                {
+                    totaliser.Add(line);
+                }
             }
         }
 
